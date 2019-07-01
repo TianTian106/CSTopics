@@ -240,6 +240,11 @@ int main(void)
 }
 ```
 
+```
+# 代码中的反括号
+select * from `schema`
+```
+
 HTML 原始码会自动转为实体：
 <div class="footer">
    © 2004 Foo Corporation
@@ -260,3 +265,7 @@ HTML 原始码会自动转为实体：
         <td>王平</td>
     </tr>
 </table>
+
+
+# 15. other refferences
+https://daringfireball.net/projects/markdown/
