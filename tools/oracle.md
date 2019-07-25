@@ -23,7 +23,7 @@ CREATE TABLE SCHEMA_AUDIT_DDL (
   NAME VARCHAR2(100),
   OLD_NAME VARCHAR2(100),
   OP_TYPE VARCHAR2(30),
-  OP_CONTEXT VARCHAR2(2000)
+  OP_CONTEXT CLOB
 );
 
 ALTER TABLE SCHEMA_AUDIT_DDL ADD (CONSTRAINT SCHEMA_AUDIT_DDL_PK PRIMARY KEY (ID));
@@ -46,7 +46,7 @@ CREATE OR REPLACE TRIGGER AUDIT_TRIGGER_AFTER_DDL
   after ddl on schema
 DECLARE
   sql_text ora_name_list_t;
-  op_context VARCHAR2(2000);
+  op_context CLOB;
   n PLS_INTEGER;
 begin
   if (ora_sysevent!='TRUNCATE' and ora_sysevent!='GRANT' and ora_dict_obj_name not in ('SCHEMA_AUDIT_DDL','V_SCHEMA') and ora_dict_obj_type in ('TABLE','VIEW','COLUMN'))
