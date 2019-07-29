@@ -96,7 +96,7 @@ end;
 
 --全量schema信息视图
 create or replace view v_schema as
-select t3.table_name,nvl(table_type,'VIEW') table_type,comments,'{"columns":[' || column_desc || ']}' as column_desc,audit_id
+select t3.table_name,nvl(table_type,'VIEW') table_type,comments,'{"columns":[' || column_desc || ']}' as column_desc,nvl(audit_id,0) as audit_id
 from
 ( select table_name,wm_concat(col) as column_desc
   -- xmlagg(xmlparse(content col||',' wellformed) order by column_id).getclobval() as column_desc
